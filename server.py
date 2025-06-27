@@ -10,6 +10,10 @@ def render_index_page():
 def return_emotion():
     text_to_analyze = request.args.get('textToAnalyze')
     emotion_scores = emotion_detector(text_to_analyze)
+    print(emotion_scores)
+    if emotion_scores['dominant_emotion'] is None:
+        return "<b> Invalid text! Please try again! </b>"
+
     display_text = 'For the given statement, the system response is '
     display_text += f"'anger': {emotion_scores['anger']}, "
     display_text += f"'disgust': {emotion_scores['disgust']}, "
