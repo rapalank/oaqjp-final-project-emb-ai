@@ -1,13 +1,24 @@
+""" 
+Flask Server for NLP Emotion Detection.
+"""
+
 from flask import Flask, render_template, request
 from EmotionDetection.emotion_detection import emotion_detector
 server = Flask(__name__)
 
 @server.route("/")
 def render_index_page():
+    """
+    Displays the main page for emotion detection.
+    """
+
     return render_template('index.html')
 
 @server.route('/emotionDetector')
 def return_emotion():
+    """
+    Displays the emotion of the input text, and an error message for empty text.
+    """
     text_to_analyze = request.args.get('textToAnalyze')
     emotion_scores = emotion_detector(text_to_analyze)
     print(emotion_scores)
