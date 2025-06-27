@@ -19,7 +19,5 @@ def return_emotion():
     display_text += f"The dominant emotion is <b>{emotion_scores['dominant_emotion']}</b>."
     return display_text
 
-#    return("The dominant emotion is <b>joy</b>")
-
 if __name__ == "__main__":
     server.run()
